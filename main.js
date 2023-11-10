@@ -63,7 +63,7 @@ const analizzaTesto = (stringa) => {
     };
 };
 
-console.log(analizzaTesto(" Hello word "));
+// console.log(analizzaTesto(" Hello word "));
 
 //-------------
 //Esercizio 3
@@ -84,3 +84,35 @@ console.log(analizzaTesto(" Hello word "));
 //         }
 //     });
 // });
+
+//-------------
+//Esercizio 4
+//-------------
+
+window.addEventListener("load", () => {
+    const body = document.body;
+    const bottone = document.getElementById("bottoneInvio");
+
+    bottone.addEventListener("click", () => {
+        const input = document.getElementById("testoUtente");
+        const valoreInput = input.value;
+        const ul = document.createElement("ul");
+        if (valoreInput === "") {
+            alert("Inserisci del testo prima di inviare");
+        } else {
+            const creaP = document.createElement("p");
+            const risultatoOgettto = analizzaTesto(valoreInput);
+            const chiaveValore = Object.entries(risultatoOgettto);
+            for (let i = 0; i < chiaveValore.length; i++) {
+                let chiaveValoreI = chiaveValore[i];
+                let chiave = chiaveValoreI[0];
+                let valore = chiaveValoreI[1];
+                const li = document.createElement("li");
+                li.innerHTML = `${chiave}: ${valore} `;
+                ul.appendChild(li);
+                creaP.appendChild(ul);
+            }
+        }
+        body.appendChild(ul);
+    });
+});
