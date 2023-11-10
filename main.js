@@ -34,21 +34,53 @@
 // console.log(conteggio);
 
 //-------------
+//Esercizio 1
+//------------
+const analizzaTesto = (stringa) => {
+    const reverse = (stringa) => {
+        const separaStringa = stringa.split("");
+        const invertiStringa = separaStringa.reverse();
+        const unisciStringa = invertiStringa.join("");
+        return unisciStringa;
+    };
+
+    const contieneJs = (stringa) => {
+        if (stringa.includes("JS") || stringa.includes("Javascript")) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    return {
+        originale: stringa,
+        minuscolo: stringa.toLowerCase(),
+        maiuscolo: stringa.toUpperCase(),
+        senzaSpazi: stringa.trim(),
+        numeroCaratteri: stringa.length,
+        contieneJS: contieneJs(stringa),
+        invertita: reverse(stringa),
+    };
+};
+
+console.log(analizzaTesto(" Hello word "));
+
+//-------------
 //Esercizio 3
 //-------------
 
-window.addEventListener("load", () => {
-    const body = document.body;
-    const bottone = document.getElementById("bottoneInvio");
-    bottone.addEventListener("click", () => {
-        const input = document.getElementById("testoUtente");
-        const valoreInput = input.value;
-        if (valoreInput === "") {
-            alert("Inserisci del testo prima di inviare");
-        } else {
-            const creaP = document.createElement("p");
-            creaP.innerHTML = `questo e' il valore inserito: ${valoreInput}`;
-            body.appendChild(creaP);
-        }
-    });
-});
+// window.addEventListener("load", () => {
+//     const body = document.body;
+//     const bottone = document.getElementById("bottoneInvio");
+//     bottone.addEventListener("click", () => {
+//         const input = document.getElementById("testoUtente");
+//         const valoreInput = input.value;
+//         if (valoreInput === "") {
+//             alert("Inserisci del testo prima di inviare");
+//         } else {
+//             const creaP = document.createElement("p");
+//             creaP.innerHTML = `questo e' il valore inserito: ${valoreInput}`;
+//             body.appendChild(creaP);
+//         }
+//     });
+// });
